@@ -1,7 +1,6 @@
 #####################################################################################################################
 # SET ME!!!
 config_dataset = "DT4D"
-# ROOT = "/cluster/falas/xzhang/DT4D_test"
 ROOT = "/cluster/andram/xzhang/DT4D_con"
 # SET ME!!!
 ####################################################################################################################
@@ -221,19 +220,10 @@ if init_from:
     # init_from = "<SET YOUR CHECKPOINT NAME HERE>"
     # checkpoint = 0 # And set the epoch of the checkpoint
 
-    # init_from = "2024-02-11__NPMs__SHAPE_nss0.7_uni0.3__bs7__lr-0.0005-0.0005-0.001-0.001_intvl500__s384-512-8l__p384-1024-8l__woSE3__wShapePosEnc__wPosePosEnc__woDroutS__woDroutP__wWNormS__wWNormP__ON__4d-animal"
-    # init_from = "2024-08-01__NPMs__SHAPE_nss0.7_uni0.3__bs10__lr-0.0005-0.0005-0.001-0.001-0.0001_intvl500__s384-512-8l__p384-512-8l__woSE3__wShapePosEnc__wPosePosEnc__wDroutS0.1__woDroutP__wWNormS__wWNormP__ON__4d-animal-init"
     init_from = "2024-10-07__NPMs__SHAPE_nss0.7_uni0.3__bs16__lr-0.0005-0.0005-0.001-0.001-0.0001-0.0001_intvl500__s384-512-8l__p384-1024-8l__woSE3__wShapePosEnc__wPosePosEnc__woDroutS__woDroutP__wWNormS__wWNormP__ON__4d-animal-new"
-    # init_from = "2024-10-27__NPMs__SHAPE__MLP__bs16__L1__wDroutS0.1__ON__DT4D_con+"
     checkpoint = "latest"  # And set the epoch of the checkpoint
 
     if pose_ft:
-        # init_from_pose = '2024-02-16__NPMs__POSE__bs3__lr-0.0005-0.0005-0.001-0.001_intvl30__s384-512-8l__p384-1024-8l__woSE3__wShapePosEnc__wPosePosEnc__woDroutS__woDroutP__wWNormS__wWNormP__ON__4d-animal-pose'
-        # init_from_pose = '2024-05-31__NPMs__POSE__bs6__lr-0.0005-0.0005-0.001-0.001_intvl20__s384-512-8l__p384-512-8l__woSE3__wShapePosEnc__wPosePosEnc__wDroutS0__woDroutP__wWNormS__wWNormP__ON__4d-animal-pose-small'
-        # init_from_pose = "2024-07-30__NPMs__POSE__bs10__lr-0.0005-0.0005-0.001-0.001-0.0001_intvl20__s384-512-8l__p384-512-8l__woSE3__wShapePosEnc__wPosePosEnc__wDroutS0__woDroutP__wWNormS__wWNormP__ON__4d-animal-motion"
-        # init_from_pose = "2024-08-20__NPMs__POSE__bs4__lr-0.0005-0.0005-0.001-0.001-0.0001_intvl20__s384-512-8l__p384-1024-8l__woSE3__wShapePosEnc__wPosePosEnc__woDroutS__woDroutP__wWNormS__wWNormP__ON__4d-animal-motion"
-        # init_from_pose = "2024-10-13__NPMs__POSE__bs8__ON__4d-animal-motion"
-        # init_from_pose = "2024-10-16__NPMs__POSE__bs8__MSE__ON__DT4D_con-motion"
         init_from_pose = "2024-11-25__NPMs__POSE__MLP__bs10__MSE__woDroutS__ON__DT4D_con-motion"
         checkpoint_pose = 'latest'
 
