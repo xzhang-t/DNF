@@ -14,21 +14,16 @@ train_dataset_name = 'data_split_diff'
 # train_dataset_name = 'data_split_diff_one'
 
 shape_dir = "2024-10-07__NPMs__SHAPE_nss0.7_uni0.3__bs16__lr-0.0005-0.0005-0.001-0.001-0.0001-0.0001_intvl500__s384-512-8l__p384-1024-8l__woSE3__wShapePosEnc__wPosePosEnc__woDroutS__woDroutP__wWNormS__wWNormP__ON__4d-animal-new"
-# shape_dir = "2024-10-27__NPMs__SHAPE__MLP__bs16__L1__wDroutS0.1__ON__DT4D_con+"
 checkpoint = "latest"
 ckpt = "latest"
 ft_shape_dir = "2024-10-21__NPMs__SHAPE__bs16__SHAPE_FT_cp384_rk256__L1__ON__DT4D"
-# ft_dir = "2024-10-28__NPMs__SHAPE__MLP__bs8__SHAPE_FT_cp384_rk256_SVD__L1__wDroutS0.1__ON__DT4D_con+"
 
 load_cond = False
 calc_metrics = False
 if mode == 'test':
     if not only_shape:
-        # best_model_save_path = './experiments/animal_diff/2024-10-22__NPMs__POSE__Diff__woFT__bs32/checkpoints/last.ckpt'
         best_model_save_path = '/cluster/falas/xzhang/experiments/animal_diff/2024-10-27__NPMs__POSE__Diff__woFT__bs48/checkpoints/last-epoch=1999-train_loss=0.01.ckpt'
         if with_ft:
-            # best_model_save_path = './experiments/animal_diff/2024-10-22__NPMs__POSE__Diff__bs32/checkpoints/last.ckpt'
-            # best_model_save_path = '/cluster/falas/xzhang/experiments/animal_diff/2024-10-27__NPMs__POSE__Diff__wFT__bs48/checkpoints/last-epoch=1999-train_loss=0.00.ckpt'
             best_model_save_path = '/cluster/falas/xzhang/experiments/animal_diff/2024-11-09__NPMs__POSE__Diff__wFT__bs1__ON__data_split_diff_one/checkpoints/last-epoch=99-train_loss=0.00.ckpt'
 
         load_cond = False
@@ -40,6 +35,7 @@ if mode == 'test':
         if with_ft:
             best_model_save_path = '/cluster/falas/xzhang/experiments/animal_diff/2024-10-23__NPMs__SHAPE__Diff__wFT__bs48/checkpoints/last-epoch=1968-train_loss=0.00.ckpt'
 
+model_resume_path = None
 cond_jitter = False
 reverse = False
 if not only_shape:
@@ -49,8 +45,6 @@ if not only_shape:
     cond_jitter = False
     pose_dir = "2024-10-16__NPMs__POSE__bs8__MSE__ON__DT4D_con-motion"
     ft_pose_dir = "2024-10-18__NPMs__POSE__bs12__POSE_FT_cp768_rk512__L1__ON__DT4D_con-motion"
-    model_resume_path = None
-    # model_resume_path = '/cluster/falas/xzhang/experiments/animal_diff/2024-11-03__NPMs__POSE__Diff__wFT__bs48__ON__data_split_diff2__with_T/checkpoints/last-epoch=824-train_loss=0.00.ckpt'
     add_dir = None
     # add_dir = '2024-11-09__NPMs__POSE__MLP__bs16__POSE_FT_cp768_rk512_SVD__L1__woDroutS__ON__DT4D_con-motion__fit_s'
 
