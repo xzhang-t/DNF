@@ -55,9 +55,6 @@ For the default setting, we sample 100,000 points on the object surface and 100,
 python ./data_processing/sample_flow.py -sigma 0.05
 ```
 
-We're done with generating data for CAPE! This was just an example using CAPE, but as you've seen, the only thing you need to have is a dataset of meshes:
-- we need t-pose meshes for each identity in the dataset, and we can use [multiview_to_watertight_mesh.py](npms/data_processing/multiview_to_watertight_mesh.py) to make these t-pose meshes watertight, to then sample points and their SDF values.
-- for a given identity, we need to have surface correspondences between the t-pose and the posed meshes (but note that these posed meshes don't need to be watertight).
 
 ## Training an NPM
 
