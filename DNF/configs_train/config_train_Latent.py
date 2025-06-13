@@ -11,10 +11,8 @@ only_shape = False
 with_ft = True
 gen_mesh = False
 train_dataset_name = 'data_split_diff'
-# train_dataset_name = 'data_split_diff_one'
 
 shape_dir = "2024-10-07__NPMs__SHAPE_nss0.7_uni0.3__bs16__lr-0.0005-0.0005-0.001-0.001-0.0001-0.0001_intvl500__s384-512-8l__p384-1024-8l__woSE3__wShapePosEnc__wPosePosEnc__woDroutS__woDroutP__wWNormS__wWNormP__ON__4d-animal-new"
-# shape_dir = "2024-10-27__NPMs__SHAPE__MLP__bs16__L1__wDroutS0.1__ON__DT4D_con+"
 checkpoint = "latest"
 ckpt = "latest"
 ft_shape_dir = "2024-10-21__NPMs__SHAPE__bs16__SHAPE_FT_cp384_rk256__L1__ON__DT4D"
@@ -24,11 +22,8 @@ load_cond = False
 calc_metrics = False
 if mode == 'test':
     if not only_shape:
-        # best_model_save_path = './experiments/animal_diff/2024-10-22__NPMs__POSE__Diff__woFT__bs32/checkpoints/last.ckpt'
         best_model_save_path = '/cluster/falas/xzhang/experiments/animal_diff/2024-10-27__NPMs__POSE__Diff__woFT__bs48/checkpoints/last-epoch=1999-train_loss=0.01.ckpt'
         if with_ft:
-            # best_model_save_path = './experiments/animal_diff/2024-10-22__NPMs__POSE__Diff__bs32/checkpoints/last.ckpt'
-            # best_model_save_path = '/cluster/falas/xzhang/experiments/animal_diff/2024-10-27__NPMs__POSE__Diff__wFT__bs48/checkpoints/last-epoch=1999-train_loss=0.00.ckpt'
             best_model_save_path = '/cluster/falas/xzhang/experiments/animal_diff/2024-11-09__NPMs__POSE__Diff__wFT__bs1__ON__data_split_diff_one/checkpoints/last-epoch=99-train_loss=0.00.ckpt'
 
         load_cond = False
@@ -51,8 +46,6 @@ if not only_shape:
     cond_jitter = False
     pose_dir = "2024-10-16__NPMs__POSE__bs8__MSE__ON__DT4D_con-motion"
     ft_pose_dir = "2024-10-18__NPMs__POSE__bs12__POSE_FT_cp768_rk512__L1__ON__DT4D_con-motion"
-    # model_resume_path = '/cluster/falas/xzhang/experiments/animal_diff/2024-11-09__NPMs__POSE__Diff__wFT__bs72__ON__data_split_diff/checkpoints/last-epoch=241-train_loss=0.00.ckpt'
-    # add_dir = '2024-11-09__NPMs__POSE__MLP__bs16__POSE_FT_cp768_rk512_SVD__L1__woDroutS__ON__DT4D_con-motion__fit_s'
     add_dir = '2024-11-08__NPMs__POSE__MLP__bs16__POSE_FT_cp768_rk512_SVD__L1__woDroutS__ON__DT4D_con-motion__with_M'
 
 shape_codes_dim = 384
@@ -109,14 +102,6 @@ lr = 0.0001
 scheduler = True
 scheduler_step = 50
 normalization_factor = 1
-# learning_rate_schedules = {
-#  "diff": {
-#         "type": "step",
-#         "initial": 0.0001,
-#         "interval": 1000,
-#         "factor": 0.5,
-#     },
-# }
 accumulate_grad_batches = 1
 
 continue_from = False
