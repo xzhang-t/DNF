@@ -7,7 +7,7 @@
 > [Xinyi Zhang](https://xzhang-t.github.io/), [Naiqi Li](https://naiqili.github.io/), [Angela Dai](https://www.3dunderstanding.org/team.html)
 
 <p align="center">
-    <img width="100%" src="teaser.jpg"/>
+    <img width="80%" src="teaser.jpg"/>
 </p>
 
 
