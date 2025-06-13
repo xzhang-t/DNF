@@ -25,7 +25,7 @@
 #### Build from source
 A linux system with cuda is required for the project.
 
-The [dnf_env.yaml](./dnf/dnf_env.yaml) file contains (hopefully) all necessary python dependencies for the project.
+The [dnf_env.yaml](./DNF/dnf_env.yaml) file contains (hopefully) all necessary python dependencies for the project.
 To conveniently install them automatically with [anaconda](https://www.anaconda.com/) you can use:
 
 ```
@@ -59,7 +59,7 @@ python ./data_processing/sample_flow.py -sigma 0.05
 
 #### Shape Latent Space
 
-Set `only_shape=True` in [config_train_DT4D.py](./dnf/configs_train/config_train_DT4D.py) and start the training:
+Set `only_shape=True` in [config_train_DT4D.py](./DNF/configs_train/config_train_DT4D.py) and start the training:
 
 ```
 python train.py
@@ -67,7 +67,7 @@ python train.py
 
 #### Pose Latent Space
 
-Set `only_shape=False` in [config_train_DT4D.py](./dnf/configs_train/config_train_DT4D.py). We now need to load the best checkpoint from training the shape MLP. For that, go to [config_train_DT4D.py](./dnf/configs_train/config_train_DT4D.py), make sure `init_from = True` in its first appearance in the file, and then set this same variable to your pretrained model name later in the file:
+Set `only_shape=False` in [config_train_DT4D.py](./DNF/configs_train/config_train_DT4D.py). We now need to load the best checkpoint from training the shape MLP. For that, go to [config_train_DT4D.py](./DNF/configs_train/config_train_DT4D.py), make sure `init_from = True` in its first appearance in the file, and then set this same variable to your pretrained model name later in the file:
 
 ```
 init_from = "<model_name>"
@@ -83,14 +83,14 @@ python train.py
 After we have the latent spaces of shape and pose we could fine-tune the MLP on each object to get higher fidelity.
 
 #### Fine-tune the Shape MLP
-Set `only_shape=True` and `shape_ft=True` in [config_train_DT4D.py](./dnf/configs_train/config_train_DT4D.py). Load the pre-trained shape MLP and start the fine-tuning:
+Set `only_shape=True` and `shape_ft=True` in [config_train_DT4D.py](./DNF/configs_train/config_train_DT4D.py). Load the pre-trained shape MLP and start the fine-tuning:
 
 ```
 python train.py
 ```
 
 #### Fine-tune the Pose MLP
-Set `only_shape=False` and `pose_ft=True` in [config_train_DT4D.py](./dnf/configs_train/config_train_DT4D.py). Load the pre-trained pose MLP and start the fine-tuning:
+Set `only_shape=False` and `pose_ft=True` in [config_train_DT4D.py](./DNF/configs_train/config_train_DT4D.py). Load the pre-trained pose MLP and start the fine-tuning:
 
 ```
 python train.py
@@ -99,21 +99,21 @@ python train.py
 Once we reach convergence, you're done. You get the dictionary-based representation of shape and pose that you can use to train the diffusion model.
 
 #### Train the Shape Diffusion 
-Set `only_shape=True` in [config_train_Latent.py](./dnf/configs_train/config_train_Latent.py) and start the training of shape diffusion:
+Set `only_shape=True` in [config_train_Latent.py](./DNF/configs_train/config_train_Latent.py) and start the training of shape diffusion:
 
 ```
 python train_diff.py
 ```
 
 #### Train the Pose Diffusion 
-Set `only_shape=False` in [config_train_Latent.py](./dnf/configs_train/config_train_Latent.py). You could also enable data augmentation with `reverse=True` or `cond_jitter=True`. Conditioned on the shape latent, train the motion diffusion model:
+Set `only_shape=False` in [config_train_Latent.py](./DNF/configs_train/config_train_Latent.py). You could also enable data augmentation with `reverse=True` or `cond_jitter=True`. Conditioned on the shape latent, train the motion diffusion model:
 
 ```
 python train_diff.py
 ```
 
 #### Generate the 4d motion
-Load all the best checkpoints from training in both [config_eval_shape.py](./dnf/configs_eval/config_eval_shape.py) and [config_eval_pose.py](./dnf/configs_eval/config_eval_pose.py). Start inference with:
+Load all the best checkpoints from training in both [config_eval_shape.py](./DNF/configs_eval/config_eval_shape.py) and [config_eval_pose.py](./DNF/configs_eval/config_eval_pose.py). Start inference with:
 
 ```
 python test_diff.py
