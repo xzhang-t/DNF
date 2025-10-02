@@ -121,7 +121,7 @@ python test_diff.py
 
 ## Pretrained Models
 Please check the checkpoints at the following link:
-[DNF-ckpts](https://tumde-my.sharepoint.com/:f:/g/personal/xinyi_zhang_tum_de/EjX0ERy_iXRJnAE2rDtyo6IBQILM1AuHQhXeTP3wnVn79g?e=q2GKRH)
+[DNF-ckpts](https://syncandshare.lrz.de/getlink/fiJYuEtUZz1AYiYxxzP6ys/ckpts)
 If this link expires, please contact us so we can refresh it.
 
 
